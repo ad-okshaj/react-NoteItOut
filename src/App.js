@@ -2,13 +2,13 @@
 
 import "./App.css";
 import Header from "./components/Header";
-import Body from "./components/Body"; // imp shortcut
+import NotesListPages from "./pages/NotesListPages"; // imp shortcut
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Body />
+      <NotesListPages />
     </div>
   );
 }
