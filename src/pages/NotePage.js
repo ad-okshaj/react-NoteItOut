@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 // import notes from "../assests/data"; - no longer using this file.
+import React, { useEffect, useState, useNavigate } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { ReactComponent as ArrowLeft } from "../assests/arrow-left.svg";
@@ -7,6 +7,7 @@ import { ReactComponent as ArrowLeft } from "../assests/arrow-left.svg";
 const NotePage = () => {
   const { id } = useParams();
   //  const specificNote = notes.find((specific) => specific.id === Number(id)); - filter for matching note with specific id
+  // let navigate = useNavigate();
   let [specificNote, setSpecificNote] = useState(null);
 
   useEffect(() => {
@@ -19,6 +20,21 @@ const NotePage = () => {
     setSpecificNote(data);
   };
 
+  let updateNote = async () => {
+    await fetch(`http://localhost:8000/notes/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...specificNote, updated: new Date() }),
+    });
+  };
+
+  // let handleSubmit = () => {
+  //   updateNote();
+  //   navigate("/");
+  // };
+
   return (
     <div className="note">
       <div className="note-header">
@@ -28,7 +44,12 @@ const NotePage = () => {
           </Link>
         </h3>
       </div>
-      <textarea value={specificNote?.body}></textarea>
+      <textarea
+        onChange={(e) => {
+          setSpecificNote({ ...specificNote, body: e.target.value });
+        }}
+        value={specificNote?.body}
+      ></textarea>
     </div>
   );
 };
