@@ -8,6 +8,7 @@ const NotePage = ({ match }) => {
   ); //filter for matching note with specific id
   return (
     <div>
+      <p>Hello, Clarice.</p>
       <p>{specificNote?.body}</p>
     </div>
   );

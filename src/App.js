@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<NotesListPage />} />
-          <Route path="note" element={<NotePage />} />
+          <Route path="note/:id" element={<NotePage />} />
         </Routes>
       </div>
     </Router>
