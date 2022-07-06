@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="container dark">
         <div className="app">
           <Header />
           <Routes>
