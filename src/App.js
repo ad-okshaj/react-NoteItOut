@@ -2,14 +2,21 @@
 
 import "./App.css";
 import Header from "./components/Header";
-import NotesListPages from "./pages/NotesListPages"; // imp shortcut
+import NotesListPage from "./pages/NotesListPage"; // imp shortcut
+import NotePage from "./pages/NotePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <NotesListPages />
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/" element={<NotesListPage />} />
+          <Route path="note" element={<NotePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
