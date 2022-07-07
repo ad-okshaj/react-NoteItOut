@@ -21,6 +21,16 @@ const NotePage = () => {
     setSpecificNote(data);
   };
 
+  let createNote = async () => {
+    await fetch(`http://localhost:8000/notes/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...specificNote, updated: new Date() }),
+    });
+  };
+
   let updateNote = async () => {
     await fetch(`http://localhost:8000/notes/${id}`, {
       method: "PUT",
@@ -47,6 +57,8 @@ const NotePage = () => {
       deleteNote();
     } else if (id == "new") {
       updateNote();
+    } else if (id === "new" && specificNote !== null) {
+      createNote();
     }
     navigate(-1);
   };

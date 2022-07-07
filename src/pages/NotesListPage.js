@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 //import notes from "../assests/data"; - no longer using this file.
 import ListItem from "../components/ListItem";
+import AddButton from "../components/AddButton";
 
 const NotesListPages = () => {
   let [notes, setNotes] = useState([]);
@@ -26,6 +27,7 @@ const NotesListPages = () => {
           <ListItem key={index} noteProp={noteObj} />
         ))}
       </div>
+      <AddButton />
     </div>
   );
 };
