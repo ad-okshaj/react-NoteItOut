@@ -13,16 +13,17 @@ const NotePage = () => {
 
   useEffect(() => {
     getNote();
-  }, []);
+  }, [id]);
 
   let getNote = async () => {
+    if (id === "new") return;
     let response = await fetch(`http://localhost:8000/notes/${id}`);
     let data = await response.json();
     setSpecificNote(data);
   };
 
   let createNote = async () => {
-    await fetch(`http://localhost:8000/notes/${id}`, {
+    await fetch(`http://localhost:8000/notes/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,14 +54,14 @@ const NotePage = () => {
   };
 
   let handleSubmit = () => {
-    if (id != "new" && !specificNote.body) {
+    if (id !== "new" && !specificNote.body) {
       deleteNote();
-    } else if (id == "new") {
+    } else if (id !== "new") {
       updateNote();
     } else if (id === "new" && specificNote !== null) {
       createNote();
     }
-    navigate(-1);
+    navigate("/");
   };
 
   return (
@@ -71,7 +72,12 @@ const NotePage = () => {
             <ArrowLeft onClick={handleSubmit} />
           </Link>
         </h3>
-        <button onClick={deleteNote}>Delete</button>
+
+        {id !== "new" ? (
+          <button onClick={deleteNote}>Delete</button>
+        ) : (
+          <button onClick={handleSubmit}>Done</button>
+        )}
       </div>
       <textarea
         onChange={(e) => {
