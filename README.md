@@ -4,6 +4,6 @@
 -   NoteItOut is a React.js web application
 -   Personal Project
 -   Made with ❤️ by **Adokshaj Bhandarkar**
-- 
+
 ## About
 -  A web app for writing personal notes down quickly.
