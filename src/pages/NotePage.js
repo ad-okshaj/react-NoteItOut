@@ -7,23 +7,23 @@ import { ReactComponent as ArrowLeft } from "../assests/arrow-left.svg";
 
 const NotePage = () => {
   let navigate = useNavigate();
-  let { id } = useParams();
+  let { noteID } = useParams();
   //  const specificNote = notes.find((specific) => specific.id === Number(id)); //filter for matching note with specific id
   let [specificNote, setSpecificNote] = useState(null);
 
   useEffect(() => {
     getNote();
-  }, [id]);
+  }, [noteID]);
 
   let getNote = async () => {
-    if (id === "new") return;
-    let response = await fetch(`http://localhost:8000/notes/${id}`);
+    if (noteID === "new") return;
+    let response = await fetch(`/api/notes/${noteID}`);
     let data = await response.json();
     setSpecificNote(data);
   };
 
   let createNote = async () => {
-    await fetch(`http://localhost:8000/notes/`, {
+    await fetch(`/api/notes/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const NotePage = () => {
   };
 
   let updateNote = async () => {
-    await fetch(`http://localhost:8000/notes/${id}`, {
+    await fetch(`/api/notes/${noteID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const NotePage = () => {
   };
 
   let deleteNote = async () => {
-    await fetch(`http://localhost:8000/notes/${id}`, {
+    await fetch(`/api/notes/${noteID}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -54,11 +54,11 @@ const NotePage = () => {
   };
 
   let handleSubmit = () => {
-    if (id !== "new" && !specificNote.body) {
+    if (noteID !== "new" && !specificNote.body) {
       deleteNote();
-    } else if (id !== "new") {
+    } else if (noteID !== "new") {
       updateNote();
-    } else if (id === "new" && specificNote !== null) {
+    } else if (noteID === "new" && specificNote !== null) {
       createNote();
     }
     navigate("/");
@@ -73,7 +73,7 @@ const NotePage = () => {
           </Link>
         </h3>
 
-        {id !== "new" ? (
+        {noteID !== "new" ? (
           <button onClick={deleteNote}>Delete</button>
         ) : (
           <button onClick={handleSubmit}>Done</button>

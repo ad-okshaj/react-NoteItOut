@@ -9,12 +9,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
+      {/* outermost tag is Router. */}
       <div className="container dark">
         <div className="app">
           <Header />
           <Routes>
             <Route path="/" element={<NotesListPage />} />
-            <Route path="note/:id" element={<NotePage />} />
+            <Route path="note/:noteID" element={<NotePage />} />
           </Routes>
         </div>
       </div>

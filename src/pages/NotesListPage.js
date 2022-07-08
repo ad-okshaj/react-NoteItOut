@@ -7,10 +7,10 @@ const NotesListPages = () => {
   let [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    getNote();
+    getNotes();
   }, []);
 
-  let getNote = async () => {
+  let getNotes = async () => {
     let response = await fetch("/api/notes/");
     let data = await response.json();
     setNotes(data);
