@@ -7,3 +7,4 @@
 
 ## About
 -  A web app for writing personal notes down quickly.
+- Only React.js project for now. Adding Django soon.
