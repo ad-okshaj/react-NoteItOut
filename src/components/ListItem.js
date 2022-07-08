@@ -25,6 +25,7 @@ let getContent = (noteProp) => {
   }
 };
 
+// noteProp ie. object destructuring
 const ListItem = ({ noteProp }) => {
   return (
     <Link to={`/note/${noteProp.id}`}>
