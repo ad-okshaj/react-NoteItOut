@@ -43,12 +43,12 @@ const NotePage = () => {
   };
 
   let deleteNote = async () => {
-    await fetch(`/api/notes/${noteID}`, {
+    await fetch(`/api/notes/${noteID}/delete/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ specificNote }),
+      // body: JSON.stringify({ specificNote }), not required for delete
     });
     navigate("/");
   };
