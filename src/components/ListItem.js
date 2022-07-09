@@ -19,7 +19,7 @@ let getContent = (noteProp) => {
   content = content.replaceAll(title, "");
 
   if (content.length > 45) {
-    return content.slice(0, 45);
+    return content.slice(0, 45) + "...";
   } else {
     return content;
   }
