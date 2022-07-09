@@ -1,4 +1,5 @@
 from rest_framework.response import Response
+from rest_framework import viewsets
 from .models import Note
 from .serializers import NoteSerializer
 
@@ -31,7 +32,7 @@ def updateNote(request, pk):
     if serializer.is_valid():
         serializer.save()
 
-    return serializer.data
+    return Response(serializer.data)
 
 
 def deleteNote(request, pk):
