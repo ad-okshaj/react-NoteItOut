@@ -23,7 +23,7 @@ const NotePage = () => {
   };
 
   let createNote = async () => {
-    await fetch(`/api/notes/`, {
+    await fetch(`/api/notes/create/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
