@@ -13,7 +13,7 @@ const NotePage = () => {
 
   useEffect(() => {
     getNote();
-  }, [noteID]);
+  }, []);
 
   let getNote = async () => {
     if (noteID === "new") return;
@@ -33,12 +33,12 @@ const NotePage = () => {
   };
 
   let updateNote = async () => {
-    await fetch(`/api/notes/${noteID}`, {
+    await fetch(`/api/notes/${noteID}/update/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...specificNote, updated: new Date() }),
+      body: JSON.stringify(specificNote),
     });
   };
 
@@ -68,9 +68,7 @@ const NotePage = () => {
     <div className="note">
       <div className="note-header">
         <h3>
-          <Link to="/">
-            <ArrowLeft onClick={handleSubmit} />
-          </Link>
+          <ArrowLeft onClick={handleSubmit} />
         </h3>
 
         {noteID !== "new" ? (
