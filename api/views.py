@@ -40,6 +40,7 @@ def getRoutes(request):
         },
         {
             'Endpoint': '/notes/id/delete/',
+            'credentials': 'include',
             'method': 'DELETE',
             'body': None,
             'description': 'Deletes and exiting note'

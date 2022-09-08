@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login
 from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # password for test user is Harry$$$***000
 # Create your views here.
@@ -10,7 +11,11 @@ from django.views.generic import TemplateView
 #     print(request.user)
 #     if request.user.is_anonymous:
 #         return redirect("/login") 
-#     return render(request, 'index.html')
+
+class index(LoginRequiredMixin, TemplateView):
+    login_url = 'login'
+    redirect_field_name = 'login'
+    template_name = "index.html"
 
 def loginUser(request):
     if request.method=="POST": #if the request is Post request.

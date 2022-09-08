@@ -44,6 +44,7 @@ const NotePage = () => {
 
   let deleteNote = async () => {
     await fetch(`/api/notes/${noteID}/`, {
+      credentials: "include",
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
