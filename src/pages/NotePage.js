@@ -30,6 +30,7 @@ const NotePage = () => {
       },
       body: JSON.stringify({ ...specificNote, updated: new Date() }),
     });
+    this.forceUpdate();
   };
 
   let updateNote = async () => {
