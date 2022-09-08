@@ -11,13 +11,13 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
-<!--atmaagrey='#1C202B' pinkbutton='#984DE5' mycolor3='#0A0B1D'-->
-  
+    <!--atmaagrey='#1C202B' pinkbutton='#984DE5' mycolor3='#0A0B1D'-->
+
     <style>
         html,
         body {
             height: 100%;
-            
+
         }
 
         body {
@@ -29,7 +29,7 @@
             padding-bottom: 40px;
             background-color: #f5f5f5;
             background-color: #0A0B1D;
-            
+
         }
 
         .form-signin {
@@ -81,26 +81,30 @@
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
-      
+
         }
-         #loginsignin{
-            background-color:#984DE5;
-            border-color:#984DE5;
+
+        #loginsignin {
+            background-color: #984DE5;
+            border-color: #984DE5;
         }
-        #logintext{
+
+        #logintext {
             color: white;
         }
-        .register{
+
+        .register {
             position: absolute;
-            right:    0;
-            top:   0;
-            background-color:#984DE5;
+            right: 0;
+            top: 0;
+            background-color: #984DE5;
             color: white;
             margin: 30px;
             padding: 10px 20px 10px 20px;
             font-size: 17px;
-        } 
-        #register:hover{
+        }
+
+        #register:hover {
             color: white;
         }
     </style>
@@ -111,21 +115,21 @@
 <body class="text-center">
     <form class="form-signin" method="post" action="/login">
         {% csrf_token %}
-        <img class="mb-4" src="../static/icon.png" alt="ATMAA ICON" height="100">
-        <h1 class="h3 mb-3 font-weight-normal" id="logintext">Sign in</h1>
+        <h1 class="h3 mb-3 font-weight-bold" id="logintext">NoteItOut</h1>
+        <h3 class="h3 mb-3 font-weight-normal" id="logintext">Sign in</h3>
         <label for="inputEmail" class="sr-only">Username</label>
         <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required
             autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
+        <div style="margin: 20px;" class="checkbox mb-3">
             <label id="logintext">
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginsignin">Sign in</button>
         <a class="btn btn-primary, register" id="register" href="/accounts/signup" role="button">Sign Up</a>
-        <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022 - Adokshaj Bhandarkar 🔥</p>
     </form>
 </body>
 
