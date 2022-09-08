@@ -40,6 +40,7 @@ const NotePage = () => {
       },
       body: JSON.stringify(specificNote),
     });
+    this.forceUpdate();
   };
 
   let deleteNote = async () => {
