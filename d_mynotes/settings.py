@@ -22,12 +22,16 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
+    'accounts.apps.AccountsConfig', # new
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic', 
     'django.contrib.staticfiles',
+    'crispy_forms',
     'api.apps.ApiConfig',
     'corsheaders',
     'rest_framework',
@@ -61,7 +65,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / './build'
+            BASE_DIR / './build',
+            "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -145,3 +150,5 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

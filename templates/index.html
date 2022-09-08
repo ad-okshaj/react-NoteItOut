@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged in user</title>
+</head>
+<style>
+ html,
+    body {
+            height: 100%;
+            
+        }
+
+        body {
+            color: white;
+            background-color: #f5f5f5;
+            background-color: #0A0B1D;
+            
+        }
+</style>
+<body>
+    Welcome {{request.user}}!
+    <p>
+    ATMAA HOMEPAGE.</p>
+    <a href="/logout">Logout</a>
+</body>
+</html>
