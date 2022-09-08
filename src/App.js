@@ -6,10 +6,6 @@ import NotesListPage from "./pages/NotesListPage"; // imp shortcut
 import NotePage from "./pages/NotePage";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
-if (performance.navigation.type == 2) {
-  location.reload(true);
-}
-
 function App() {
   return (
     <Router>
